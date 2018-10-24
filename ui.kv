@@ -1,0 +1,81 @@
+<ManagerScreens@ScreenManager>:
+
+    MenuScreen:
+        id: men
+
+    SortedListFood:
+        id: list_food
+
+    AddFood:
+        id: add_food
+
+
+<MenuScreen@Screen>:
+    name: "menu"
+
+    BoxLayout:
+        orientation: 'vertical'
+
+        Button:
+            text: "Дневник питания"
+            on_press: app.screen_manager.current = 'list_food'
+        Button:
+            text: "Добавить блюдо в дневник питания"
+            on_press: app.screen_manager.current = 'add_food'
+
+
+<AddFood>:
+    name: "add_food"
+    _app: app
+
+    BoxLayout:
+        orientation: 'vertical'
+
+        Button:
+            text: '< Назад в главное меню'
+            on_press: app.screen_manager.current = 'menu'
+            size_hint_y: None
+            height: dp(40)
+
+        TextInput:
+            id: field_food
+            multiline: False
+            height: dp(40)
+            size_hint_y: None
+            hint_text: "Название блюда"
+
+        Button:
+            text: "Добавить блюдо"
+            size_hint_y: None
+            height: dp(40)
+            on_press:
+                if field_food.text != '': root.button_clicked(field_food.text); \
+                field_food.text = ''
+
+        Label:
+            id: result_label
+
+
+<SortedListFood>:
+    name: "list_food"
+
+    BoxLayout:
+        orientation: 'vertical'
+
+        Button:
+            text: '< Назад в главное меню'
+            on_press: app.screen_manager.current = 'menu'
+            size_hint_y: None
+            height: dp(40)
+
+        RecycleView:
+            id: rv
+            key_viewclass: 'viewclass'
+            key_size: 'height'
+
+            RecycleBoxLayout:
+                default_size: None, dp(40)
+                default_size_hint: 1, None
+                size_hint_y: None
+                height: self.minimum_height
+                orientation: 'vertical'
