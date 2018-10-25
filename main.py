@@ -11,7 +11,7 @@ from kivy.config import ConfigParser
 from kivy.lang import Builder
 from kivy.factory import Factory
 
-Builder.load_file('ui.kv')
+Builder.load_string(open('ui.kv', encoding='utff-8').read())
 
 
 class SortedListFood(Screen):
