@@ -15,7 +15,7 @@ from kivy.lang import Builder
 from kivy.factory import Factory
 
 if not PY2:
-    Builder.load_string(open('ui.kv', encoding='utff-8').read())
+    Builder.load_string(open('ui.kv', encoding='utf-8').read())
 else:
     Builder.load_file('ui.kv')
 
