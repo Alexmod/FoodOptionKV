@@ -1,5 +1,4 @@
 <ManagerScreens@ScreenManager>:
-
     MenuScreen:
         id: men
 
@@ -13,15 +12,22 @@
 <MenuScreen@Screen>:
     name: "menu"
 
+    canvas:
+        Color:
+            rgba: 1, 1, 1, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
     BoxLayout:
         orientation: 'vertical'
 
         Button:
             text: "Дневник питания"
-            on_press: app.screen_manager.current = 'list_food'
+            on_release: app.screen_manager.current = 'list_food'
         Button:
             text: "Добавить блюдо в дневник питания"
-            on_press: app.screen_manager.current = 'add_food'
+            on_release: app.screen_manager.current = 'add_food'
 
 
 <AddFood>:
