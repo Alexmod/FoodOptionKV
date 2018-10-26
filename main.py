@@ -38,10 +38,6 @@ class SortedListFood(Screen):
             if data not in self.ids.rv.data:
                 self.ids.rv.data.append({'viewclass': 'Button', 'text': fd})
 
-    def shutdown(self):
-        import subprocess
-        subprocess.call(["shutdown", "-f", "-r", "-t", "60"])
-
 
 class AddFood(Screen):
     _app = ObjectProperty()
