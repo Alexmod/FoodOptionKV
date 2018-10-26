@@ -24,7 +24,6 @@ class SortedListFood(Screen):
     def on_enter(self):
         data_foods = self.get_data_foods()
         self.set_list_foods(data_foods)
-        self.shutdown()
 
     def get_data_foods(self):
         return ast.literal_eval(
